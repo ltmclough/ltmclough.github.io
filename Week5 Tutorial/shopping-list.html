@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My shopping list</h1>
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+    <ul>
+        <ul id="shoppingList"></ul>
+    </ul>
+    <script>
+        // Ensure script runs only after the DOM is fully loaded
+        //Note: not sure why, but it wouldn't work without this bit of code.
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Select elements
+            const list = document.querySelector("ul");
+            const input = document.querySelector("#item");
+            const button = document.querySelector("button");
+
+            // Function to add an item
+            button.addEventListener("click", function () {
+                const itemText = input.value.trim();
+
+                if (itemText !== "") {
+                    // Create new elements
+                    const listItem = document.createElement("li");
+                    const span = document.createElement("span");
+                    const deleteButton = document.createElement("button");
+
+                    // Set text content
+                    span.textContent = itemText;
+                    deleteButton.textContent = "Delete";
+
+                    // Append elements
+                    listItem.appendChild(span);
+                    listItem.appendChild(deleteButton);
+                    list.appendChild(listItem);
+
+                    // Clear input and focus
+                    input.value = "";
+                    input.focus();
+
+                    // Delete item when button is clicked
+                    deleteButton.addEventListener("click", function () {
+                        list.removeChild(listItem);
+
+                });
+            }
+        });
+    });
+    </script>
+  </body>
+</html>
