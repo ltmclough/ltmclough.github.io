@@ -1,14 +1,12 @@
-// 1. Define items for sale
+
 const itemsForSale = [
-    { name: "Item 1", price: 19.99, image: "https://via.placeholder.com/150" },
-    { name: "Item 2", price: 29.99, image: "https://via.placeholder.com/150" },
-    { name: "Item 3", price: 39.99, image: "https://via.placeholder.com/150" }
+    { name: "Eggs", price: 8.99, image: "https://" },
+    { name: "Apples", price: 5.99, image: "https://" },
+    { name: "Cheese", price: 9.99, image: "https://" }
 ];
 
-// 2. Define the cart array to store items added to the cart
 let cart = [];
 
-// 3. Function to display items for sale
 function displayItems() {
     const itemList = document.getElementById('itemList');
     itemList.innerHTML = ''; // Clear the current list
@@ -33,20 +31,14 @@ function displayItems() {
         button.addEventListener('click', addToCart);
     });
 }
-
-// 4. Function to add items to the cart
 function addToCart(event) {
     const itemName = event.target.dataset.name;
     const item = itemsForSale.find(item => item.name === itemName);
 
-    // Add item to cart
     cart.push(item);
 
-    // Update the cart display
     updateCart();
 }
-
-// 5. Function to display the cart contents and calculate total
 function updateCart() {
     const cartItems = document.getElementById('cartItems');
     const totalPrice = document.getElementById('totalPrice');
@@ -65,11 +57,9 @@ function updateCart() {
 
         cartItems.appendChild(cartItemDiv);
 
-        // Update total price
         total += item.price;
     });
 
-    // Update total price display
     totalPrice.textContent = total.toFixed(2);
 
     // Attach event listeners for "Remove from Cart" buttons
@@ -78,17 +68,12 @@ function updateCart() {
         button.addEventListener('click', removeFromCart);
     });
 }
-
-// 6. Function to remove items from the cart
 function removeFromCart(event) {
     const index = event.target.dataset.index;
     
-    // Remove item from cart
     cart.splice(index, 1);
 
-    // Update the cart display
     updateCart();
 }
 
-// Initialize the page
 displayItems();
