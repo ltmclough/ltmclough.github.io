@@ -1,7 +1,7 @@
 const itemsForSale = [
-    { name: "Eggs", price: 8.99, image: 'https://via.placeholder.com/150?text=Eggs' },
-    { name: "Apples", price: 5.99, image: 'https://via.placeholder.com/150?text=Apples' },
-    { name: "Cheese", price: 9.99, image: 'https://via.placeholder.com/150?text=Cheese' }
+    { name: "Eggs", price: 8.99, image: 'Images/eggs.jpg' },
+    { name: "Apples", price: 5.99, image: 'Images/apples.jpg' },
+    { name: "Cheese", price: 9.99, image: 'Images/cheese.jpg' }
 ];
 
 let cart = [];
